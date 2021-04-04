@@ -1,0 +1,26 @@
+[
+    { 
+        "id":1,
+        "name":"Harry Potter 0",
+        "book":"Secret of Chambers",
+        "author":"J.K Rowling",
+        "edition":5,
+        "published":true
+    },
+    { 
+        "id":2,
+        "name":"Harry Potter 1",
+        "book":"Secret of Chambers",
+        "author":"J.K Rowling",
+        "edition":4, 
+        "published":false
+    },
+    { 
+        "id":3,
+        "name":"Harry Potter 2",
+        "book":"Secret of Chambers",
+        "author":"J.K Rowling",
+        "edition":9,
+        "published":true
+    }
+]
