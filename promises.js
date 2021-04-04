@@ -1,22 +1,33 @@
-const posts = [
-  { titile: "Post one", body: "This is post one" },
-  { title: "Post two", body: "This is post two" },
-];
+const getComments = (resource) => {
 
-function getPosts() {
-  setTimeout(() => {
-    let output = "";
-    posts.map((post, index) => (output += `<li>${post.body}</li>`));
-    document.body.innerHTML = output;
-  }, 1000);
-}
 
-function createPost(post, callback) {
-    return new Promise((resolve, reject) => {
-      
+  return new Promise((resolve, reject) => {
+
+     const request = new XMLHttpRequest();
+
+     request.addEventListener("readystatechange", () => {
+       // console.log(request, request.readyState);
+
+       if (request.readyState === 4 && request.status === 200) {
+         const data = JSON.parse(request.responseText);
+         resolve(data);
+       } else if (request.readyState === 4) {
+         reject("Cannot fetch data");
+       }
+     });
+
+     request.open("GET", resource);
+
+     request.send();
+
   })
-}
 
-anotherpost = { title: "Hello World", body: "I am Post Three" };
+ 
+};
 
-createPost(anotherpost, getPosts);
+
+getComments('demo.json').then((data) => {
+  console.log('Promise Resolved',data)
+}).catch((err) => {
+  console.log(err)
+})
